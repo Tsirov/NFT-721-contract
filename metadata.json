@@ -1,0 +1,10 @@
+{
+  "name": "Lion",
+  "description": "An adorable Lion!",
+  "image": "https://ipfs.io/ipfs/QmewhoTzWGdXoW6A6HK44bhr8GKBBtcU3MHqH3vov7UDFr",
+  "attributes": [
+    {
+      "value": 100
+    }
+  ]
+}
