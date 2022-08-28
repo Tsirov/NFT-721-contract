@@ -11,7 +11,7 @@ contract NftToken is Ownable, ERC721 {
   uint256 public s_tokenCounter;
   string private s_baseURIextended;
   using Strings for uint256;
-  mapping(uint256 => string) private s_metadataURIs;
+  mapping(uint256 => string) public s_metadataURIs;
 
   string private _baseURIextended;
   uint256 public fee = (1 * 10**16);
@@ -94,6 +94,7 @@ contract NftToken is Ownable, ERC721 {
       'ERC721: caller is not token owner nor approved'
     );
     _burn(tokenId);
+    delete s_metadataURIs[tokenId];
   }
 
   function balanceOfContract() public view returns (uint256) {

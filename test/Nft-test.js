@@ -96,8 +96,29 @@ describe('NftToken', function () {
     });
   });
 
-  // describe('Burn NFT', function () {
-  //   it('Approve address', async function () {
-  //   });
-  // });
+  describe.only('Burn NFT', function () {
+    it('Burn with incorrect address', async function () {
+      await contract.connect(deployer);
+      await contract.mintItem('John', { value: fee });
+      const connectUser1 = await contract.connect(user1);
+
+      await expect(connectUser1.burn(1)).to.be.revertedWith(
+        'ERC721: caller is not token owner nor approved'
+      );
+    });
+
+    it.only('Burn with already burned tokenID ', async function () {
+      await contract.connect(deployer);
+      await contract.mintItem('John', { value: fee });
+      await contract.burn(1);
+
+      const ownerOfTokenId = await contract.s_metadataURIs(1);
+
+      assert.equal(ownerOfTokenId, '');
+
+      await expect(contract.burn(1)).to.be.revertedWith(
+        'ERC721: invalid token ID'
+      );
+    });
+  });
 });
