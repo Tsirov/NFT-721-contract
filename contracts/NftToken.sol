@@ -79,14 +79,6 @@ contract NftToken is Ownable, ERC721 {
     return s_tokenCounter;
   }
 
-  function approve(address to, uint256 tokenId) public override {
-    require(
-      (ownerOf(tokenId) == msg.sender) || (getApproved(tokenId) == msg.sender),
-      'ERC721Metadata: caller is not token owner or approved'
-    );
-    _approve(to, tokenId);
-  }
-
   function burn(uint256 tokenId) public virtual {
     //solhint-disable-next-line max-line-length
     require(
