@@ -96,7 +96,7 @@ describe('NftToken', function () {
     });
   });
 
-  describe.only('Burn NFT', function () {
+  describe('Burn NFT', function () {
     it('Burn with incorrect address', async function () {
       await contract.connect(deployer);
       await contract.mintItem('John', { value: fee });
@@ -107,7 +107,7 @@ describe('NftToken', function () {
       );
     });
 
-    it.only('Burn with already burned tokenID ', async function () {
+    it('Burn with already burned tokenID ', async function () {
       await contract.connect(deployer);
       await contract.mintItem('John', { value: fee });
       await contract.burn(1);
