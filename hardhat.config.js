@@ -4,6 +4,8 @@ require("@nomiclabs/hardhat-etherscan")
 require("dotenv").config()
 require("solidity-coverage")
 require("hardhat-deploy")
+require("./tasks/block-number")
+
 
 /** @type import('hardhat/config').HardhatUserConfig */
 
@@ -42,4 +44,11 @@ module.exports = {
       noColors: true,
       coinmarketcap: COINMARKETCAP_API_KEY,
     },
+    paths: {
+      artifacts: './artifacts',
+      cache: './cache',
+      sources: './contracts',
+      tests: './test',
+      tasks: './tasks'
+    }
 };

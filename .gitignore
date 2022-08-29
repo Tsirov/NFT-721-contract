@@ -8,4 +8,6 @@ typechain-types
 #Hardhat files
 cache
 artifacts
+gas-reports.txt
+coverage.json
 

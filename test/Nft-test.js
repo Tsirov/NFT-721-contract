@@ -91,7 +91,7 @@ describe('NftToken', function () {
       const connectUser1 = await contract.connect(user1);
 
       await expect(connectUser1.approve(user2.address, 1)).to.be.revertedWith(
-        'ERC721Metadata: caller is not token owner or approved'
+        'ERC721: approve caller is not token owner nor approved for all'
       );
     });
   });
